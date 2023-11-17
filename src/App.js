@@ -18,6 +18,7 @@ function App() {
     <main css={style}>
       <Dice dice={dice} />
       <button
+        className="roll-dice"
         onClick={() => {
           setDice(newDice());
         }}
@@ -40,6 +41,21 @@ const style = css`
   justify-content: center;
   align-items: center;
   gap: 4rem;
+
+  .roll-dice {
+    height: 3.5rem;
+    width: 10rem;
+    border: none;
+    border-radius: 0.6rem;
+    background-color: #5035ff;
+    color: white;
+    font-size: 1.2rem;
+    font-family: "Karla", sans-serif;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 `;
 
 export default App;
