@@ -1,22 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { useState } from "react";
 import Die from "./Die";
 
-function Dice() {
-  const [dice, setDice] = useState(newDice());
-
-  function newDice() {
-    const newDice = [];
-    for (let i = 0; i < 10; i++) {
-      newDice.push(Math.ceil(Math.random() * 6));
-    }
-    return newDice;
-  }
-
-  console.log(dice);
-
-  const diceElement = dice.map((die) => <Die value={die} />);
+function Dice(props) {
+  const diceElement = props.dice.map((die) => <Die value={die} />);
 
   return <div css={style}>{diceElement}</div>;
 }
