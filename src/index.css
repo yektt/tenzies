@@ -15,8 +15,3 @@ main {
   margin: 10vh auto;
   border-radius: 5px;
 }
-
-.dices {
-  display: grid;
-  grid-template-columns: repeat(5, 3rem);
-}
