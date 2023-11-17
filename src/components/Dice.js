@@ -21,8 +21,8 @@ function Dice(props) {
 
 const style = css`
   display: grid;
-  grid-template-columns: repeat(5, calc(20% - 2rem));
   grid-gap: 2rem;
+  grid-template-columns: repeat(5, calc((100% - 8rem) / 5));
 `;
 
 export default Dice;
