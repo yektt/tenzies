@@ -3,7 +3,9 @@ import { css } from "@emotion/react";
 import Die from "./Die";
 
 function Dice(props) {
-  const diceElement = props.dice.map((die) => <Die value={die} />);
+  const diceElement = props.dice.map((die) => (
+    <Die key={die.id} value={die.value} isHeld={die.isHeld} />
+  ));
 
   return <div css={style}>{diceElement}</div>;
 }

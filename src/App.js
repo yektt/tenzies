@@ -9,7 +9,11 @@ function App() {
   function newDice() {
     const newDice = [];
     for (let i = 0; i < 10; i++) {
-      newDice.push(Math.ceil(Math.random() * 6));
+      newDice.push({
+        id: i,
+        isHeld: false,
+        value: Math.ceil(Math.random() * 6),
+      });
     }
     return newDice;
   }
@@ -23,7 +27,7 @@ function App() {
           setDice(newDice());
         }}
       >
-        Roll dice
+        Roll
       </button>
     </main>
   );
