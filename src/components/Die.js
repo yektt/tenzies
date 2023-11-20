@@ -2,9 +2,18 @@
 import { css } from "@emotion/react";
 
 function Die(props) {
+  function changeHeldStatus() {
+    console.log("change");
+  }
+
   return (
     <div css={style}>
-      <div>{props.value}</div>
+      <div
+        onClick={changeHeldStatus}
+        className={`${props.isHeld ? "on-hold" : ""}`}
+      >
+        {props.value}
+      </div>
     </div>
   );
 }
@@ -25,6 +34,10 @@ const style = css`
     justify-content: center;
     align-items: center;
     cursor: pointer;
+  }
+
+  .on-hold {
+    background-color: #59e391;
   }
 `;
 
