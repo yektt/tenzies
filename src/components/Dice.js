@@ -6,13 +6,17 @@ import Die from "./Die";
 function Dice() {
   const [dice, setDice] = useState(newDice());
 
+  function generateNewDie() {
+    return Math.ceil(Math.random() * 6);
+  }
+
   function newDice() {
     const newDice = [];
     for (let i = 0; i < 10; i++) {
       newDice.push({
         id: i,
         isHeld: false,
-        value: Math.ceil(Math.random() * 6),
+        value: generateNewDie(),
       });
     }
     return newDice;
@@ -33,7 +37,7 @@ function Dice() {
           ? die
           : {
               ...die,
-              value: Math.ceil(Math.random() * 6),
+              value: generateNewDie(),
             };
       })
     );
