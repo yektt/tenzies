@@ -2,6 +2,7 @@
 import { css } from "@emotion/react";
 import { useState, useEffect } from "react";
 import Die from "./Die";
+import Confetti from "react-confetti";
 
 function Dice() {
   const [dice, setDice] = useState(newDice());
@@ -39,16 +40,20 @@ function Dice() {
   }
 
   function rollDice() {
-    setDice((prevDice) =>
-      prevDice.map((die) => {
-        return die.isHeld
-          ? die
-          : {
-              ...die,
-              value: generateNewDie(),
-            };
-      })
-    );
+    if (gameFinished) {
+      setDice(newDice);
+    } else {
+      setDice((prevDice) =>
+        prevDice.map((die) => {
+          return die.isHeld
+            ? die
+            : {
+                ...die,
+                value: generateNewDie(),
+              };
+        })
+      );
+    }
   }
 
   const diceElement = dice.map((die) => (
@@ -62,9 +67,10 @@ function Dice() {
 
   return (
     <div css={style}>
+      {gameFinished && <Confetti />}
       <div className="dice">{diceElement}</div>
       <button className="roll-dice" onClick={rollDice}>
-        Roll
+        {gameFinished ? "New Game" : "Roll"}
       </button>
     </div>
   );
