@@ -26,6 +26,19 @@ function Dice() {
     );
   }
 
+  function rollDice() {
+    setDice((prevDice) =>
+      prevDice.map((die) => {
+        return die.isHeld
+          ? die
+          : {
+              ...die,
+              value: Math.ceil(Math.random() * 6),
+            };
+      })
+    );
+  }
+
   const diceElement = dice.map((die) => (
     <Die
       key={die.id}
@@ -38,12 +51,7 @@ function Dice() {
   return (
     <div css={style}>
       <div className="dice">{diceElement}</div>
-      <button
-        className="roll-dice"
-        onClick={() => {
-          setDice(newDice());
-        }}
-      >
+      <button className="roll-dice" onClick={rollDice}>
         Roll
       </button>
     </div>
