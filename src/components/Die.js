@@ -2,14 +2,10 @@
 import { css } from "@emotion/react";
 
 function Die(props) {
-  function changeHeldStatus() {
-    console.log("change");
-  }
-
   return (
     <div css={style}>
       <div
-        onClick={changeHeldStatus}
+        onClick={props.holdDice}
         className={`${props.isHeld ? "on-hold" : ""}`}
       >
         {props.value}
