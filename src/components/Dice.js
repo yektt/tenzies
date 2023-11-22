@@ -67,14 +67,15 @@ const style = css`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
-  height: 100%;
+  gap: 2rem;
+  height: 70%;
 
   .dice {
     display: grid;
     grid-gap: 2rem;
     grid-template-columns: repeat(5, calc((100% - 8rem) / 5));
   }
+
   .roll-dice {
     height: 3.5rem;
     width: 10rem;
