@@ -1,10 +1,18 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Die from "./Die";
 
 function Dice() {
   const [dice, setDice] = useState(newDice());
+  const [gameFinished, setGameFinished] = useState(false);
+
+  useEffect(() => {
+    const chosenNumber = dice[0].value;
+    setGameFinished(
+      dice.every((die) => die.isHeld && die.value === chosenNumber)
+    );
+  }, [dice]);
 
   function generateNewDie() {
     return Math.ceil(Math.random() * 6);
