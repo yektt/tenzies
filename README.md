@@ -1,3 +1,5 @@
+# This project has been build in order to follow [Learn React](https://scrimba.com/learn/learnreact) course in Scrimba.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
