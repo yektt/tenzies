@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 import { useState } from "react";
 import Die from "./Die";
 
-function Dice(props) {
+function Dice() {
   const [dice, setDice] = useState(newDice());
 
   function newDice() {
@@ -19,7 +19,11 @@ function Dice(props) {
   }
 
   function holdDice(id) {
-    console.log(id);
+    setDice((prevDice) =>
+      prevDice.map((die) => {
+        return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
+      })
+    );
   }
 
   const diceElement = dice.map((die) => (
@@ -34,7 +38,6 @@ function Dice(props) {
   return (
     <div css={style}>
       <div className="dice">{diceElement}</div>
-
       <button
         className="roll-dice"
         onClick={() => {
